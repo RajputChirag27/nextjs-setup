@@ -1,0 +1,27 @@
+echo '🏗️👷 Styling, testing and linting your project before committing'
+
+# # Check Prettier standards
+npm run check ||
+(
+    echo 'Prettier Check Failed. Run npm run format, add changes and try commit again.';
+    false;
+)
+
+echo '🏗️👷 Linting your project before committing'
+# # Check Linting standards
+npm run lint ||
+(
+    echo 'Lint Check Failed. Run npm run lint, add changes and try commit again.';
+    false;
+)
+
+echo '🏗️👷 Building your project before committing'
+# # Check Build standards
+npm run build ||
+(
+    echo 'Build Check Failed. Run npm run build, add changes and try commit again.';
+    false;
+)
+
+# If everything passes... Now we can commit
+echo 'All checks passed'
